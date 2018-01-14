@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+    frontend:
+        image: registry.gitlab.com/matters24/interesy/frontend:1.0
+        container_name: xsolve-frontend
+        volumes:
+          - ./frontend/:/app
+        ports:
+          - "8080:8080"
+          - "8070:80"
+        command: /bin/bash -c "nginx && yarn cache clean && yarn install && yarn start"
